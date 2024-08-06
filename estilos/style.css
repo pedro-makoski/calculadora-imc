@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(229, 229, 229);
+}
+
+main {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.281);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 110px;
+}
+
+section input, section button{
+    padding: 5px;
+    border-radius: 5px;
+    border: 0.1px solid black;
+}
+
+section input:focus{
+    outline: 0.5px solid black;
+}
+
+section button, section input[type="reset"] {
+    background-color: white;
+}
+
+section button:hover, section input[type="reset"]:hover {
+    background-color: black;
+    color: white;
+}
