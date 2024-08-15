@@ -6,6 +6,7 @@
 }
 
 body {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center ;
@@ -23,11 +24,64 @@ main {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.281);
 }
 
+h1 {
+    margin-bottom: 20px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.196);
+}
+
+dialog {
+    width: 95vw;
+    height: 95vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    border: 1px solid black;
+    
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.381);
+}
+
+dialog h2 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+dialog #fechar {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    margin: 20px;
+    border-radius: 50%;
+    padding: 10px;
+    height: 50px;
+    width: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+dialog #fechar:hover {
+    background-color: rgba(128, 128, 128, 0.162);
+}
+
 section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 110px;
+}
+
+section div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 section input, section button{
@@ -40,11 +94,23 @@ section input:focus{
     outline: 0.5px solid black;
 }
 
-section button, section input[type="reset"] {
+section button {
     background-color: white;
+    width: 100%;
 }
 
-section button:hover, section input[type="reset"]:hover {
+section button:hover, section button:focus{
     background-color: black;
     color: white;
+}
+
+@media screen and (min-width: 760px) {
+    dialog {
+        width: 50vw;
+        height: 50vh;
+    }
+
+    dialog h2 {
+        font-size: 3em;
+    }
 }
