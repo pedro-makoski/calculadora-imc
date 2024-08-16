@@ -32,16 +32,38 @@ dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.196);
 }
 
-dialog {
+div:has(dialog) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 95vw;
-    height: 95vh;
+    height: 95vw;
+    display: none;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+div:has(dialog.open) {
+    display: block;
+}
+
+dialog.open {
+    animation: open 2s 1;
+    display: flex;
+    animation-fill-mode: forwards;
+}
+
+dialog {
+    position: static;
+    width: 100%;
+    height: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
     border: 1px solid black;
     
-    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -105,12 +127,33 @@ section button:hover, section button:focus{
 }
 
 @media screen and (min-width: 760px) {
-    dialog {
+    div:has(dialog), dialog{
         width: 50vw;
         height: 50vh;
     }
 
     dialog h2 {
         font-size: 3em;
+    }
+}
+
+@keyframes open {
+    0% {
+        transform-origin: top center;
+        transform: translate3d(-50%, -50%, 0) rotateX(90deg);
+    }
+
+    100% {
+        transform: translate3d(-50%, -50%, 0) rotateX(0);
+    }
+}
+
+@keyframes close {
+    0% {
+        transform: translate3d(-50%, -50%, 0) rotateX(0deg);
+    }
+
+    100% {
+        transform: translate3d(-50%, -50%, 0) rotateX(90deg);
     }
 }

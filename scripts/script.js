@@ -5,13 +5,21 @@ const valor = document.getElementById('valor')
 const botao_fechar = document.getElementById('fechar')
 
 botao_fechar.onclick = () => {
-    modal.close()
-    modal.style.display = 'none'
+    modal.style.animation = 'close 1s forwards'
 }
+
+modal.addEventListener('animationend', (e) => {
+    if(e.animationName === 'close') {
+        modal.close()
+        modal.classList.remove('open')
+        modal.style.animation = 'none'
+    }
+})
 
 function abrirModal(titulo, texto) {
     modal.showModal()
-    modal.style.display = 'flex'
+    modal.classList.add('open')
+    modal.style.animation = 'open 2s forwards'
 
     estatus.innerHTML = titulo
     valor.innerHTML = texto    
