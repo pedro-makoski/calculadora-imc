@@ -3,13 +3,13 @@ class Pessoa {
         this.peso = peso
         this.altura = altura;
 
-        if(typeof this.peso !== 'number') {
+        if(isNaN(this.peso)) {
             this.peso = this.peso.replace(',', '.')
 
             this.peso = parseFloat(this.peso)
         }
 
-        if(typeof this.altura !== 'number') {
+        if(isNaN(this.altura)) {
             this.altura = this.altura.replace(',', '.')
 
             this.altura = parseFloat(this.altura)
