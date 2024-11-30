@@ -28,6 +28,11 @@ function abrirModal(titulo, texto) {
 function calcular() {
     const altura = document.getElementById('altura').value
     const peso = document.getElementById('peso').value
+
+    if(!altura || !peso) {
+        window.alert("Você não informou todos os dados, preencha todos os campos");
+        return
+    }
     
     const pessoadoCalculo = new Pessoa(peso, altura)
 
